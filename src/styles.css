@@ -6,3 +6,12 @@
 body {
   background-color: #f6f8fb;
 }
+
+.hover-blue:hover {
+  @apply bg-blue-200 !important
+}
+
+
+.hover-blue:hover > th {
+  @apply bg-blue-200 !important
+}

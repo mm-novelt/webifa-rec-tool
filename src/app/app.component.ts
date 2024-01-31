@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
 
       this.headers.push({
         fieldName: lines[i].substring(0, 13).trim().slice(1),
-        fieldDescription: lines[i].substring(45).trim().replaceAll('.', ''),
+        fieldDescription: lines[i].substring(45).trim().replaceAll('.', '').replaceAll('-','').replaceAll('*',''),
         size: headerSize,
         data: []
       });
@@ -76,6 +76,31 @@ export class AppComponent implements OnInit {
     this.recData = '';
     this.headers = [];
   }
+
+  exportToCsv() : void {
+
+  }
+
+  //
+  // convertToCSV(data: any[]): string {
+  //   return "data:text/csv;charset=utf-8," +
+  //     data.map(row => row.join(",")).join("\n");
+  // }
+  //
+  //
+  // downloadCSV(data: any[], filename: string): void {
+  //   const csvContent = convertToCSV(data);
+  //
+  //   const encodedUri = encodeURI(csvContent);
+  //   const link = document.createElement("a");
+  //   link.setAttribute("href", encodedUri);
+  //   link.setAttribute("download", filename);
+  //   document.body.appendChild(link);
+  //
+  //   link.click();
+  //
+  //   document.body.removeChild(link);
+  // }
 
   private cutData(data: string, size: number): string[] {
     const chunk: string[] = [];
